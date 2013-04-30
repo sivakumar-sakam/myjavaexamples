@@ -1,0 +1,65 @@
+package com.comparatorexample;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+public class ComparatorMain {
+
+  /**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		User user = new User();
+		List<User> userList = new ArrayList<User>();
+		user.setId(1);
+		user.setName("Siva");
+		user.setDob(new Date());
+		user.setSal(20000);
+		user.setCountry("India");
+		user.setState("KA");
+		userList.add(user);
+
+		User user_1 = new User();
+
+		user_1.setId(-10);
+		user_1.setName("Kumar");
+		user_1.setDob(new Date());
+		user_1.setSal(20500);
+		user_1.setCountry("India");
+		user_1.setState("AP");
+		userList.add(user_1);
+
+		User user_2 = new User();
+
+		user_2.setId(6);
+		user_2.setName("Reddy");
+		user_2.setDob(new Date());
+		user_2.setSal(30000);
+		user_2.setCountry("India");
+		user_2.setState("TN");
+		userList.add(user_2);
+
+		// IdComparator class1 = new IdComparator();
+
+		System.out
+				.println("--------------------Before Sorting --------------------");
+		System.out.println(userList);
+		Collections.sort(userList, new UserSortById());
+		System.out
+				.println("--------------------After Sorting --------------------By ID");
+		System.out.println(userList);
+
+		Collections.sort(userList, new UserSortByName());
+		System.out
+				.println("--------------------After Sorting --------------------By Name");
+		System.out.println(userList);
+
+		Collections.sort(userList, new UserSortByDob());
+		System.out
+				.println("--------------------After Sorting --------------------By Date");
+		System.out.println(userList);
+	}
+
+}
